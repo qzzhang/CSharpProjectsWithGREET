@@ -1,0 +1,5 @@
+C:\SVN\source\greet-dev\main\Lib\Logger\bin\x86\Debug\Greet.LoggerLib.dll
+C:\SVN\source\greet-dev\main\Lib\Logger\bin\x86\Debug\Greet.LoggerLib.pdb
+C:\SVN\source\greet-dev\main\Lib\Logger\obj\x86\Debug\Greet.LoggerLib.dll
+C:\SVN\source\greet-dev\main\Lib\Logger\obj\x86\Debug\Greet.LoggerLib.pdb
+C:\SVN\source\greet-dev\main\Lib\Logger\obj\x86\Debug\Greet.LoggerLib.csprojResolveAssemblyReference.cache

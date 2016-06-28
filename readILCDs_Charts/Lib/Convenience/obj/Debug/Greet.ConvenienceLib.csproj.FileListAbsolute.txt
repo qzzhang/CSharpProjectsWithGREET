@@ -1,0 +1,5 @@
+C:\qz\C#projects\readXMLs\Lib\Convenience\bin\Debug\Greet.ConvenienceLib.dll
+C:\qz\C#projects\readXMLs\Lib\Convenience\bin\Debug\Greet.ConvenienceLib.pdb
+C:\qz\C#projects\readXMLs\Lib\Convenience\obj\Debug\Greet.ConvenienceLib.dll
+C:\qz\C#projects\readXMLs\Lib\Convenience\obj\Debug\Greet.ConvenienceLib.pdb
+C:\qz\C#projects\readXMLs\Lib\Convenience\obj\Debug\Greet.ConvenienceLib.csprojResolveAssemblyReference.cache

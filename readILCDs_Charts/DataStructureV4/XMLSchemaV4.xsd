@@ -1,0 +1,2063 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xs:simpleType name="ParameterType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*)"></xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="greet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="basic_parameters">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute type="ParameterType" name="year_selected"/>
+                <xs:attribute type="xs:string" name="lhv"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="monitored">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="monitor" minOccurs="0" maxOccurs="unbounded">
+              </xs:element>
+              <xs:element name="vmonitor" minOccurs="0" maxOccurs="unbounded">
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="pathways">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="groups">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:string" name="notes"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="pathway" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="prefered_functional_unit" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="unit" use="optional"/>
+                                  <xs:attribute type="xs:int" name="amount" use="optional"/>
+                                  <xs:attribute type="xs:string" name="enabled" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="feed" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:int" name="pathway" use="optional"/>
+                                  <xs:attribute type="xs:string" name="notes" use="optional"/>
+                                  <xs:attribute type="xs:int" name="mix" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="vertex" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="prefered_functional_unit" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="unit" use="required"/>
+                                        <xs:attribute type="xs:double" name="amount" use="required"/>
+                                        <xs:attribute type="xs:string" name="enabled" use="required"/>
+                                        <xs:attribute type="xs:string" name="id" use="required"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="id" use="required"/>
+                              <xs:attribute type="xs:string" name="location" use="required"/>
+                              <xs:attribute type="xs:int" name="model-id" use="required"/>
+                              <xs:attribute type="xs:int" name="type" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="edge" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="output-vertex" use="required"/>
+                                  <xs:attribute type="xs:string" name="output-id" use="required"/>
+                                  <xs:attribute type="xs:string" name="input-vertex" use="required"/>
+                                  <xs:attribute type="xs:string" name="input-id" use="required"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="output" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="id" use="required"/>
+                                  <xs:attribute type="xs:int" name="resource" use="required"/>
+                                  <xs:attribute type="xs:string" name="notes" use="required"/>
+                                  <xs:attribute type="xs:string" name="location" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:int" name="id" use="required"/>
+                        <xs:attribute type="xs:string" name="name" use="required"/>
+                        <xs:attribute type="xs:string" name="notes" use="required"/>
+                        <xs:attribute type="xs:string" name="main-output" use="required"/>
+                        <xs:attribute type="xs:string" name="modified-on" use="required"/>
+                        <xs:attribute type="xs:string" name="modified-by" use="required"/>
+                        <xs:attribute type="xs:string" name="discarded" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedReason" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedOn" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedBy" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="resources">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="groups">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="group" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:int" name="id" use="optional"/>
+                                  <xs:attribute type="xs:string" name="name" use="optional"/>
+                                  <xs:attribute type="xs:string" name="notes" use="optional"/>
+                                  <xs:attribute type="xs:int" name="include_in" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="resources">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="resource" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element name="s_ratio" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="xs:string" name="value" use="optional"/>
+                                              <xs:attribute type="xs:integer" name="year" use="optional"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                    <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="nick_name" maxOccurs="unbounded" minOccurs="0"/>
+                                <xs:element name="membership" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:int" name="group_id" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="compatibility" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:int" name="mat_id" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="recovered" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:int" name="material_id" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="evaporation" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="gas">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="xs:int" name="ref" use="optional"/>
+                                              <xs:attribute type="xs:string" name="share" use="optional"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="hidden_as_main" use="optional"/>
+                              <xs:attribute type="xs:string" name="can_be_primary" use="optional"/>
+                              <xs:attribute type="xs:string" name="c_ratio" use="optional"/>
+                              <xs:attribute type="xs:string" name="market_value" use="optional"/>
+                              <xs:attribute type="xs:string" name="density" use="optional"/>
+                              <xs:attribute type="xs:string" name="heating_value_hhv" use="optional"/>
+                              <xs:attribute type="xs:string" name="heating_value_lhv" use="optional"/>
+                              <xs:attribute type="xs:string" name="temperature" use="optional"/>
+                              <xs:attribute type="xs:string" name="pressure" use="optional"/>
+                              <xs:attribute type="xs:int" name="id" use="required"/>
+                              <xs:attribute type="xs:string" name="name" use="required"/>
+                              <xs:attribute type="xs:string" name="notes" use="optional"/>
+                              <xs:attribute type="xs:string" name="help" use="optional"/>
+                              <xs:attribute type="xs:string" name="picture" use="optional"/>
+                              <xs:attribute type="xs:string" name="s_ratio" use="optional"/>
+                              <xs:attribute type="xs:string" name="state" use="optional"/>
+                              <xs:attribute type="xs:string" name="family" use="optional"/>
+                              <xs:attribute type="xs:string" name="modified-on" use="required"/>
+                              <xs:attribute type="xs:string" name="modified-by" use="required"/>
+                              <xs:attribute type="xs:string" name="discarded" use="optional"/>
+                              <xs:attribute type="xs:string" name="discardedReason" use="optional"/>
+                              <xs:attribute type="xs:string" name="discardedOn" use="optional"/>
+                              <xs:attribute type="xs:string" name="discardedBy" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="processes">
+                <xs:complexType>
+                  <xs:choice maxOccurs="unbounded" minOccurs="0">
+                    <xs:element name="transportation" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="io-carbon-map">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="output" minOccurs="1" maxOccurs="unbounded">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="input" minOccurs="1" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:attribute type="xs:string" name="id" use="required"/>
+                                          <xs:attribute type="xs:double" name="ratio" use="required"/>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="id" use="required"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="prefered_functional_unit" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="unit" use="optional"/>
+                                  <xs:attribute type="xs:int" name="amount" use="optional"/>
+                                  <xs:attribute type="xs:string" name="enabled" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="step" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element name="nloss" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="rate" use="required"/>
+                                        <xs:attribute type="xs:string" name="dependency" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="distance" maxOccurs="unbounded" minOccurs="1">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="ParameterType" name="value" use="required"/>
+                                              <xs:attribute type="xs:integer" name="year" use="required"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                    <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="share" maxOccurs="unbounded" minOccurs="1">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="ParameterType" name="value" use="required"/>
+                                              <xs:attribute type="xs:integer" name="year" use="required"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                    <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="urban_share" maxOccurs="unbounded" minOccurs="1">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="ParameterType" name="value" use="required"/>
+                                              <xs:attribute type="xs:integer" name="year" use="required"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                    <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:int" name="dest_ref" use="required"/>
+                              <xs:attribute type="xs:int" name="origin_ref" use="required"/>
+                              <xs:attribute type="xs:int" name="ref" use="required"/>
+                              <xs:attribute type="xs:int" name="fuel_share_ref" use="required"/>
+                              <xs:attribute type="xs:string" name="back_haul" use="required"/>
+                              <xs:attribute type="xs:string" name="id" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="output">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="amount">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="ParameterType" name="value" use="required"/>
+                                              <xs:attribute type="xs:integer" name="year" use="required"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                    <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="nloss" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="rate" use="required"/>
+                                        <xs:attribute type="xs:string" name="dependency" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:int" name="ref" use="optional"/>
+                              <xs:attribute type="xs:string" name="id" use="optional"/>
+                              <xs:attribute type="xs:string" name="notes" use="optional"/>
+                              <xs:attribute type="xs:string" name="modified-on" use="required"/>
+                              <xs:attribute type="xs:string" name="modified-by" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="input" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="technology" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:int" name="ref" use="optional"/>
+                                        <xs:attribute type="xs:string" name="share" use="optional"/>
+                                        <xs:attribute type="xs:string" name="account_in_balance" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="emission_ratio" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="rate">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="year">
+                                              <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute type="xs:string" name="value" use="optional"/>
+                                                    <xs:attribute type="xs:integer" name="year" use="optional"/>
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                          <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:int" name="gas_id" use="optional"/>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="amount">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="ParameterType" name="value" use="required"/>
+                                              <xs:attribute type="xs:integer" name="year" use="required"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                    <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="source" use="optional"/>
+                              <xs:attribute type="xs:int" name="ref" use="optional"/>
+                              <xs:attribute type="xs:string" name="id" use="optional"/>
+                              <xs:attribute type="xs:string" name="notes" use="optional"/>
+                              <xs:attribute type="xs:int" name="pathway" use="optional"/>
+                              <xs:attribute type="xs:string" name="accounted_in_energy_balance" use="optional"/>
+                              <xs:attribute type="xs:int" name="mix" use="optional"/>
+                              <xs:attribute type="xs:string" name="considered_as_main" use="optional"/>
+                              <xs:attribute type="xs:string" name="modified-on" use="required"/>
+                              <xs:attribute type="xs:string" name="modified-by" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:int" name="id" use="required"/>
+                        <xs:attribute type="xs:string" name="name" use="required"/>
+                        <xs:attribute type="xs:string" name="notes" use="optional"/>
+                        <xs:attribute type="xs:string" name="help" use="optional"/>
+                        <xs:attribute type="xs:string" name="picture" use="optional"/>
+                        <xs:attribute type="xs:string" name="urban_share" use="optional"/>
+                        <xs:attribute type="xs:string" name="moisture" use="optional"/>
+                        <xs:attribute type="xs:string" name="modified-on" use="required"/>
+                        <xs:attribute type="xs:string" name="modified-by" use="required"/>
+                        <xs:attribute type="xs:string" name="discarded" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedReason" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedOn" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedBy" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="stationary" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="coproducts" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="coproduct" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="amount">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                              <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute type="xs:string" name="value" use="optional"/>
+                                                    <xs:attribute type="xs:integer" name="year" use="optional"/>
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                          <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="conventional_products">
+                                        <xs:complexType mixed="true">
+                                          <xs:sequence>
+                                            <xs:element name="product" maxOccurs="unbounded" minOccurs="0">
+                                              <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute type="xs:int" name="ref" use="optional"/>
+                                                    <xs:attribute type="xs:int" name="pathway" use="optional"/>
+                                                    <xs:attribute type="xs:string" name="ratio" use="optional"/>
+                                                    <xs:attribute type="xs:int" name="mix" use="optional"/>
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:int" name="ref" use="optional"/>
+                                    <xs:attribute type="xs:string" name="method" use="optional"/>
+                                    <xs:attribute type="xs:string" name="id" use="required"/>
+                                    <xs:attribute type="xs:string" name="notes" use="optional"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="allocation_method" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="io-carbon-map">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="output" minOccurs="1" maxOccurs="unbounded">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="input" minOccurs="1" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:attribute type="xs:string" name="id" use="required"/>
+                                          <xs:attribute type="xs:double" name="ratio" use="required"/>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="id" use="required"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="other_emissions" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="emission" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="year" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="ParameterType" name="value" use="required"/>
+                                              <xs:attribute type="xs:integer" name="year" use="required"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                   <xs:attribute type="xs:int" name="ref" use="required"/>
+                                   <xs:attribute type="xs:string" name="notes" use="optional"/>
+                                    <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="prefered_functional_unit" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="unit" use="optional"/>
+                                  <xs:attribute type="xs:float" name="amount" use="optional"/>
+                                  <xs:attribute type="xs:string" name="enabled" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="group" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="efficiency" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="xs:string" name="value" use="optional"/>
+                                              <xs:attribute type="xs:integer" name="year" use="optional"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                    <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="amount" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="xs:string" name="value" use="optional"/>
+                                              <xs:attribute type="xs:integer" name="year" use="optional"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                    <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="shares">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="input" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:complexType mixed="true">
+                                          <xs:sequence>
+                                            <xs:element name="share" maxOccurs="unbounded" minOccurs="1">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                                    <xs:complexType>
+                                                      <xs:simpleContent>
+                                                        <xs:extension base="xs:string">
+                                                          <xs:attribute type="ParameterType" name="value" use="required"/>
+                                                          <xs:attribute type="xs:integer" name="year" use="required"/>
+                                                        </xs:extension>
+                                                      </xs:simpleContent>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                                <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="emission_ratio" maxOccurs="unbounded" minOccurs="0">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="rate">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element name="year">
+                                                          <xs:complexType>
+                                                            <xs:simpleContent>
+                                                              <xs:extension base="xs:string">
+                                                                <xs:attribute type="xs:string" name="value" use="optional"/>
+                                                                <xs:attribute type="xs:integer" name="year" use="optional"/>
+                                                              </xs:extension>
+                                                            </xs:simpleContent>
+                                                          </xs:complexType>
+                                                        </xs:element>
+                                                      </xs:sequence>
+                                                      <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                                      <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute type="xs:int" name="gas_id" use="optional"/>
+                                              </xs:complexType>
+                                            </xs:element>                                       
+                                            <xs:element name="technology" maxOccurs="unbounded" minOccurs="0">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="share" maxOccurs="unbounded" minOccurs="1">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                                          <xs:complexType>
+                                                            <xs:simpleContent>
+                                                              <xs:extension base="xs:string">
+                                                                <xs:attribute type="ParameterType" name="value" use="required"/>
+                                                                <xs:attribute type="xs:integer" name="year" use="required"/>
+                                                              </xs:extension>
+                                                            </xs:simpleContent>
+                                                          </xs:complexType>
+                                                        </xs:element>
+                                                      </xs:sequence>
+                                                      <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                                      <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute type="xs:int" name="ref" use="optional"/>
+                                                <xs:attribute type="xs:string" name="account_in_balance" use="optional"/>                                 
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="amount" minOccurs="0">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                                    <xs:complexType>
+                                                      <xs:simpleContent>
+                                                        <xs:extension base="xs:string">
+                                                          <xs:attribute type="xs:string" name="value" use="optional"/>
+                                                          <xs:attribute type="xs:integer" name="year" use="optional"/>
+                                                        </xs:extension>
+                                                      </xs:simpleContent>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                                <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="sequestration" maxOccurs="1" minOccurs="0">
+                                              <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute type="xs:string" name="source"/>
+                                                    <xs:attribute type="xs:int" name="pathway" use ="optional"/>
+                                                    <xs:attribute type="xs:int" name="mix" use="optional"/>
+                                                    <xs:attribute type="xs:string" name="ratio"/>
+                                                    <xs:attribute type="xs:int" name="ref" />
+                                                    <xs:attribute type="xs:string" name="amount"/>
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute type="xs:string" name="share" use="optional"/>
+                                          <xs:attribute type="xs:string" name="source" use="optional"/>
+                                          <xs:attribute type="xs:int" name="pathway" use="optional"/>
+                                          <xs:attribute type="xs:int" name="ref" use="optional"/>
+                                          <xs:attribute type="xs:string" name="id" use="optional"/>
+                                          <xs:attribute type="xs:string" name="notes" use="optional"/>
+                                          <xs:attribute type="xs:int" name="mix" use="optional"/>
+                                          <xs:attribute type="xs:string" name="accounted_in_energy_balance" use="optional"/>
+                                          <xs:attribute type="xs:string" name="modified-on" use="required"/>
+                                          <xs:attribute type="xs:string" name="modified-by" use="required"/>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="input" minOccurs="0" maxOccurs="unbounded">
+                                  <xs:complexType>
+                                <xs:sequence>
+                                  <xs:element name="emission_ratio" maxOccurs="unbounded" minOccurs="0">
+                                    <xs:complexType>
+                                      <xs:sequence>
+                                        <xs:element name="rate">
+                                          <xs:complexType>
+                                            <xs:sequence>
+                                              <xs:element name="year">
+                                                <xs:complexType>
+                                                  <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                      <xs:attribute type="xs:string" name="value" use="optional"/>
+                                                      <xs:attribute type="xs:integer" name="year" use="optional"/>
+                                                    </xs:extension>
+                                                  </xs:simpleContent>
+                                                </xs:complexType>
+                                              </xs:element>
+                                            </xs:sequence>
+                                            <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                            <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                          </xs:complexType>
+                                        </xs:element>
+                                      </xs:sequence>
+                                      <xs:attribute type="xs:int" name="gas_id" use="optional"/>
+                                    </xs:complexType>
+                                  </xs:element>
+                                  <xs:element name="technology" maxOccurs="unbounded" minOccurs="0">
+                                    <xs:complexType>
+                                      <xs:sequence>
+                                        <xs:element name="share" maxOccurs="unbounded" minOccurs="1">
+                                          <xs:complexType>
+                                            <xs:sequence>
+                                              <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                                <xs:complexType>
+                                                  <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                      <xs:attribute type="ParameterType" name="value" use="required"/>
+                                                      <xs:attribute type="xs:integer" name="year" use="required"/>
+                                                    </xs:extension>
+                                                  </xs:simpleContent>
+                                                </xs:complexType>
+                                              </xs:element>
+                                            </xs:sequence>
+                                            <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                            <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                          </xs:complexType>
+                                        </xs:element>
+                                      </xs:sequence>
+                                      <xs:attribute type="xs:int" name="ref" use="optional"/>
+                                      <xs:attribute type="xs:string" name="account_in_balance" use="optional"/>
+                                    </xs:complexType>
+                                  </xs:element>
+                                  <!-- minOccurs is set to zero for older files when an attribute was used instead of a time series-->
+                                  <xs:element name="sequestration" maxOccurs="1" minOccurs="0">
+                                    <xs:complexType>
+                                      <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                          <xs:attribute type="xs:string" name="source"/>
+                                          <xs:attribute type="xs:int" name="pathway" use ="optional"/>
+                                          <xs:attribute type="xs:int" name="mix" use="optional"/>
+                                          <xs:attribute type="xs:string" name="ratio"/>
+                                          <xs:attribute type="xs:int" name="ref" />
+                                          <xs:attribute type="xs:string" name="amount"/>
+                                        </xs:extension>
+                                      </xs:simpleContent>
+                                    </xs:complexType>
+                                  </xs:element>
+                                  <xs:element name="amount" minOccurs="0">
+                                    <xs:complexType>
+                                      <xs:sequence>
+                                        <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                          <xs:complexType>
+                                            <xs:simpleContent>
+                                              <xs:extension base="xs:string">
+                                                <xs:attribute type="xs:string" name="value" use="optional"/>
+                                                <xs:attribute type="xs:integer" name="year" use="optional"/>
+                                              </xs:extension>
+                                            </xs:simpleContent>
+                                          </xs:complexType>
+                                        </xs:element>
+                                      </xs:sequence>
+                                      <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                      <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                    </xs:complexType>
+                                  </xs:element>
+                                </xs:sequence>
+                                <xs:attribute type="xs:string" name="source" use="optional"/>
+                                <xs:attribute type="xs:string" name="considered_as_main" use="optional"/>
+                                <xs:attribute type="xs:int" name="ref" use="optional"/>
+                                <xs:attribute type="xs:string" name="id" use="required"/>
+                                <xs:attribute type="xs:string" name="notes" use="optional"/>
+                                <xs:attribute type="xs:int" name="pathway" use="optional"/>
+                                <xs:attribute type="xs:string" name="modified-on" use="required"/>
+                                <xs:attribute type="xs:string" name="modified-by" use="required"/>
+                              </xs:complexType>
+                                </xs:element>
+                                <xs:element name="technologies" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="emission" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="xs:int" name="ref" use="optional"/>
+                                              <xs:attribute type="xs:string" name="factor" use="optional"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="type" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="input" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="emission_ratio" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="rate">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                              <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute type="xs:string" name="value" use="optional"/>
+                                                    <xs:attribute type="xs:integer" name="year" use="optional"/>
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                          <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:int" name="gas_id" use="optional"/>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="technology" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="share" maxOccurs="unbounded" minOccurs="1">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                              <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute type="ParameterType" name="value" use="required"/>
+                                                    <xs:attribute type="xs:integer" name="year" use="required"/>
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                          <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:int" name="ref" use="optional"/>
+                                    <xs:attribute type="xs:string" name="account_in_balance" use="optional"/>
+                                  </xs:complexType>
+                                </xs:element>
+                                <!-- minOccurs is set to zero for older files when an attribute was used instead of a time series-->
+                                <xs:element name="sequestration" maxOccurs="1" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="source"/>
+                                        <xs:attribute type="xs:int" name="pathway" use ="optional"/>
+                                        <xs:attribute type="xs:int" name="mix" use="optional"/>
+                                        <xs:attribute type="xs:string" name="ratio"/>
+                                        <xs:attribute type="xs:int" name="ref" />
+                                        <xs:attribute type="xs:string" name="amount"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="amount" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="xs:string" name="value" use="optional"/>
+                                              <xs:attribute type="xs:integer" name="year" use="optional"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                    <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="source" use="optional"/>
+                              <xs:attribute type="xs:int" name="ref" use="optional"/>
+                              <xs:attribute type="xs:string" name="id" use="required"/>
+                              <xs:attribute type="xs:string" name="notes" use="optional"/>
+                              <xs:attribute type="xs:int" name="pathway" use="optional"/>
+                              <xs:attribute type="xs:string" name="accounted_in_energy_balance" use="optional"/>
+                              <xs:attribute type="xs:int" name="mix" use="optional"/>
+                              <xs:attribute type="xs:string" name="considered_as_main" use="optional"/>
+                              <xs:attribute type="xs:string" name="modified-on" use="required"/>
+                              <xs:attribute type="xs:string" name="modified-by" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="step" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:int" name="dest_ref" use="optional"/>
+                                  <xs:attribute type="xs:string" name="distance" use="optional"/>
+                                  <xs:attribute type="xs:int" name="origin_ref" use="optional"/>
+                                  <xs:attribute type="xs:int" name="ref" use="optional"/>
+                                  <xs:attribute type="xs:string" name="share" use="optional"/>
+                                  <xs:attribute type="xs:int" name="fuel_share_ref" use="optional"/>
+                                  <xs:attribute type="xs:string" name="back_haul" use="optional"/>
+                                  <xs:attribute type="xs:string" name="urban_share" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="output">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="amount">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="xs:string" name="value" use="optional"/>
+                                              <xs:attribute type="xs:integer" name="year" use="optional"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                    <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="nloss" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="rate" use="required"/>
+                                        <xs:attribute type="xs:string" name="dependency" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:int" name="ref" use="optional"/>
+                              <xs:attribute type="xs:string" name="id" use="required"/>
+                              <xs:attribute type="xs:string" name="notes" use="optional"/>
+                              <xs:attribute type="xs:string" name="modified-on" use="required"/>
+                              <xs:attribute type="xs:string" name="modified-by" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:int" name="id" use="required"/>
+                        <xs:attribute type="xs:string" name="name" use="required"/>
+                        <xs:attribute type="xs:string" name="notes" use="optional"/>
+                        <xs:attribute type="xs:string" name="help" use="optional"/>
+                        <xs:attribute type="xs:string" name="picture" use="optional"/>
+                        <xs:attribute type="xs:string" name="urban_share" use="optional"/>
+                        <xs:attribute type="xs:string" name="autoCMatrix" use="optional"/>
+                        <xs:attribute type="xs:string" name="moisture" use="optional"/>
+                        <xs:attribute type="xs:string" name="modified-on" use="required"/>
+                        <xs:attribute type="xs:string" name="modified-by" use="required"/>
+                        <xs:attribute type="xs:string" name="discarded" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedReason" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedOn" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedBy" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="technologies">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="technology" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element name="emission" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:int" name="ref" use="required"/>
+                                        <xs:attribute type="ParameterType" name="factor" use="optional"/>
+                                        <xs:attribute type="xs:string" name="calculated" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:int" name="value" use="optional"/>
+                              <xs:attribute type="xs:string" name="notes" use="optional"/>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:int" name="id" use="optional"/>
+                        <xs:attribute type="xs:string" name="name" use="optional"/>
+                        <xs:attribute type="xs:string" name="notes" use="optional"/>
+                        <xs:attribute type="xs:string" name="picture" use="optional"/>
+                        <xs:attribute type="xs:int" name="inputRef" use="optional"/>
+                        <xs:attribute type="xs:int" name="outputRef" use="optional"/>
+                        <xs:attribute type="xs:string" name="massTransfer" use="optional"/>
+                        <xs:attribute type="xs:int" name="basetech" use="optional"/>
+                        <xs:attribute type="xs:string" name="modified-on" use="required"/>
+                        <xs:attribute type="xs:string" name="modified-by" use="required"/>
+                        <xs:attribute type="xs:string" name="discarded" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedReason" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedOn" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedBy" use="optional"/>
+                        <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="modes">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="mode" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="hp_factor" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="ParameterType" name="value" use="required"/>
+                                        <xs:attribute type="xs:integer" name="year" use="required"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="typical_hp" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="ParameterType" name="value" use="required"/>
+                                        <xs:attribute type="xs:integer" name="year" use="required"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="typical_fc" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="ParameterType" name="value" use="required"/>
+                                        <xs:attribute type="xs:integer" name="year" use="required"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="load_factor_to" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="ParameterType" name="value" use="required"/>
+                                        <xs:attribute type="xs:integer" name="year" use="required"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="load_factor_from" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="ParameterType" name="value" use="required"/>
+                                        <xs:attribute type="xs:integer" name="year" use="required"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="ei" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="ParameterType" name="value" use="required"/>
+                                        <xs:attribute type="xs:integer" name="year" use="required"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="average_speed" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="ParameterType" name="value" use="required"/>
+                                        <xs:attribute type="xs:integer" name="year" use="required"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="fuel_economy_to" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="ParameterType" name="value" use="required"/>
+                                        <xs:attribute type="xs:integer" name="year" use="required"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="fuel_economy_from" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="ParameterType" name="value" use="required"/>
+                                        <xs:attribute type="xs:integer" name="year" use="required"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="bsfc_adjustment" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="ParameterType" name="value" use="required"/>
+                                        <xs:attribute type="xs:integer" name="year" use="required"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="fuel_shares">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="share" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                      <xs:element name="fuel" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="xs:int" name="fuel_ref" use="optional"/>
+                                              <xs:attribute type="xs:int" name="pathway" use="optional"/>
+                                              <xs:attribute type="ParameterType" name="share" use="required"/>
+                                              <xs:attribute type="xs:string" name="notes" use="optional"/>
+                                              <xs:attribute type="xs:int" name="tech_to" use="optional"/>
+                                              <xs:attribute type="xs:int" name="tech_from" use="optional"/>
+                                              <xs:attribute type="xs:int" name="mix" use="optional"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="name" use="optional"/>
+                                    <xs:attribute type="xs:int" name="id" use="optional"/>
+                                    <xs:attribute type="xs:string" name="notes" use="optional"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="payload" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="material_transported" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="notes" use="optional"/>
+                                        <xs:attribute type="ParameterType" name="payload" use="required"/>
+                                        <xs:attribute type="xs:int" name="ref" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="energy_intensity" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="material_transported" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="ei" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                              <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute type="ParameterType" name="value" use="required"/>
+                                                    <xs:attribute type="xs:integer" name="year" use="required"/>
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                          <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="ei" use="optional"/>
+                                    <xs:attribute type="xs:string" name="name" use="optional"/>
+                                    <xs:attribute type="xs:int" name="ref" use="optional"/>
+                                  </xs:complexType>                               
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:int" name="type" use="optional"/>
+                        <xs:attribute type="xs:int" name="id" use="optional"/>                     
+                        <xs:attribute type="xs:string" name="name" use="optional"/>
+                        <xs:attribute type="xs:string" name="picture" use="optional"/>
+                        <xs:attribute type="xs:string" name="notes" use="optional"/>
+                        <xs:attribute type="xs:string" name="modified-on" use="required"/>
+                        <xs:attribute type="xs:string" name="modified-by" use="required"/>
+                        <xs:attribute type="xs:string" name="discarded" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedReason" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedOn" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedBy" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="locations">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="groups">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="group" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:int" name="id" use="optional"/>
+                                  <xs:attribute type="xs:string" name="name" use="optional"/>
+                                  <xs:attribute type="xs:string" name="notes" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="location" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="membership" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:int" name="group_id" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="name" use="optional"/>
+                        <xs:attribute type="xs:string" name="picture" use="optional"/>
+                        <xs:attribute type="xs:int" name="id" use="optional"/>
+                        <xs:attribute type="xs:string" name="notes" use="optional"/>
+                        <xs:attribute type="xs:string" name="discarded" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedReason" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedOn" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedBy" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="gases">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="groups">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="group" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:int" name="id" use="optional"/>
+                                  <xs:attribute type="xs:string" name="name" use="optional"/>
+                                  <xs:attribute type="xs:string" name="notes" use="optional"/>
+                                  <xs:attribute type="xs:string" name="showInResults" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="gases">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="gas" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element name="membership" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:int" name="group_id" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="name" use="optional"/>
+                              <xs:attribute type="xs:string" name="picture" use="optional"/>
+                              <xs:attribute type="xs:int" name="id" use="optional"/>
+                              <xs:attribute type="xs:string" name="c_ratio" use="optional"/>
+                              <xs:attribute type="xs:string" name="s_ratio" use="optional"/>
+                              <xs:attribute type="xs:string" name="notes" use="optional"/>
+                              <xs:attribute type="xs:string" name="CanBeCalculated" use="optional"/>
+                              <xs:attribute type="xs:string" name="showInResults" use="optional"/>
+                              <xs:attribute type="xs:string" name="global_warming_potential" use="optional"/>
+                              <xs:attribute type="xs:string" name="global_warming_potential20" use="optional"/>
+                              <xs:attribute type="xs:string" name="co2dissoc" use="optional"/>
+                              <xs:attribute type="xs:string" name="modified-on" use="required"/>
+                              <xs:attribute type="xs:string" name="modified-by" use="required"/>
+                              <xs:attribute type="xs:string" name="discarded" use="optional"/>
+                              <xs:attribute type="xs:string" name="discardedReason" use="optional"/>
+                              <xs:attribute type="xs:string" name="discardedOn" use="optional"/>
+                              <xs:attribute type="xs:string" name="discardedBy" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="balanced">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="balance" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element name="parameter" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:int" name="ref" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="type" use="optional"/>
+                              <xs:attribute type="xs:int" name="gas" use="optional"/>
+                              <xs:attribute type="xs:string" name="notes" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="inputs">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="tab" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:int" name="id" use="optional"/>
+                            <xs:attribute type="xs:string" name="display_name" use="optional"/>
+                            <xs:attribute type="xs:string" name="help" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="input" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="column" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="param" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                      <xs:element name="values" minOccurs="0">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                              <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute type="xs:string" name="value" use="optional"/>
+                                                    <xs:attribute type="xs:integer" name="year" use="optional"/>
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                          <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="name" use="optional"/>
+                                    <xs:attribute type="xs:int" name="id" use="optional"/>
+                                    <xs:attribute type="xs:string" name="value" use="optional"/>
+                                    <xs:attribute type="xs:string" name="notes" use="optional"/>
+                                    <xs:attribute type="xs:string" name="help" use="optional"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="name" use="optional"/>
+                              <xs:attribute type="xs:int" name="id" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="id" use="optional"/>
+                        <xs:attribute type="xs:int" name="tabid" use="optional"/>
+                        <xs:attribute type="xs:string" name="notes" use="optional"/>
+                        <xs:attribute type="xs:string" name="modified-on" use="required"/>
+                        <xs:attribute type="xs:string" name="modified-by" use="required"/>
+                        <xs:attribute type="xs:string" name="discarded" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedReason" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedOn" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedBy" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="vehicles">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="vehicle_technology_lag">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:string" name="value"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="vehicle" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="electric_range" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="ParameterType" name="value" use="required"/>
+                                        <xs:attribute type="xs:integer" name="year" use="required"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="mode" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="vmtShare" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="year" maxOccurs="unbounded" minOccurs="1">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="ParameterType" name="value" use="required"/>
+                                              <xs:attribute type="xs:integer" name="year" use="required"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                    <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="plant" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="fuel" maxOccurs="unbounded" minOccurs="0">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element name="consumption">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                                  <xs:complexType>
+                                                    <xs:simpleContent>
+                                                      <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:string" name="value" use="optional"/>
+                                                        <xs:attribute type="xs:int" name="year" use="optional"/>
+                                                      </xs:extension>
+                                                    </xs:simpleContent>
+                                                  </xs:complexType>
+                                                </xs:element>
+                                              </xs:sequence>
+                                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                            </xs:complexType>
+                                          </xs:element>
+                                          <xs:element name="charging_efficiency">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element name="year">
+                                                  <xs:complexType>
+                                                    <xs:simpleContent>
+                                                      <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:string" name="value" use="optional"/>
+                                                        <xs:attribute type="xs:int" name="year" use="optional"/>
+                                                      </xs:extension>
+                                                    </xs:simpleContent>
+                                                  </xs:complexType>
+                                                </xs:element>
+                                              </xs:sequence>
+                                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                            </xs:complexType>
+                                          </xs:element>
+                                        </xs:sequence>
+                                        <xs:attribute type="xs:int" name="ref" use="optional"/>
+                                        <xs:attribute type="xs:int" name="pathway" use="optional"/>
+                                        <xs:attribute type="xs:int" name="mix" use="optional"/>
+                                      </xs:complexType>
+                                    </xs:element>
+                                      <xs:element name="emission" maxOccurs="unbounded" minOccurs="0">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element name="value_ts">
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                                  <xs:complexType>
+                                                    <xs:simpleContent>
+                                                      <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:string" name="value" use="optional"/>
+                                                        <xs:attribute type="xs:int" name="year" use="optional"/>
+                                                      </xs:extension>
+                                                    </xs:simpleContent>
+                                                  </xs:complexType>
+                                                </xs:element>
+                                              </xs:sequence>
+                                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                            </xs:complexType>
+                                          </xs:element>
+                                        </xs:sequence>
+                                        <xs:attribute type="xs:int" name="id" use="optional"/>
+                                      </xs:complexType>
+                                    </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="name" use="required"/>
+                                    <xs:attribute type="xs:string" name="id" use="required"/>
+                                    <xs:attribute type="xs:string" name="notes" use="required"/>
+                                    <xs:attribute type="xs:string" name="isTemplate" use="required"/>
+                                    <xs:attribute type="xs:string" name="basePlantId" use="required"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="name" use="required"/>
+                              <xs:attribute type="xs:string" name="id" use="required"/>
+                              <xs:attribute type="xs:string" name="picture" use="required"/>
+                              <xs:attribute type="xs:string" name="notes" use="required"/>
+                              <xs:attribute type="xs:string" name="isTemplate" use="required"/>
+                            </xs:complexType>
+                          </xs:element>                
+                          <xs:element name="weight" maxOccurs="1" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="value" use="optional"/>
+                                        <xs:attribute type="xs:int" name="year" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="passengers" maxOccurs="1" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="value" use="optional"/>
+                                        <xs:attribute type="xs:int" name="year" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="payload" maxOccurs="1" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="value" use="optional"/>
+                                        <xs:attribute type="xs:int" name="year" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="lifespan" maxOccurs="1" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="value" use="optional"/>
+                                        <xs:attribute type="xs:int" name="year" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="lifetime_vmt" maxOccurs="1" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="value" use="optional"/>
+                                        <xs:attribute type="xs:int" name="year" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="manufacturing" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="material" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="quantity">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                              <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute type="xs:string" name="value" use="optional"/>
+                                                    <xs:attribute type="xs:int" name="year" use="optional"/>
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                          <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="replacements">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                              <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute type="xs:string" name="value" use="optional"/>
+                                                    <xs:attribute type="xs:int" name="year" use="optional"/>
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                          <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="units">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                              <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute type="xs:string" name="value" use="optional"/>
+                                                    <xs:attribute type="xs:int" name="year" use="optional"/>
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                          <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                        </xs:complexType>
+                                      </xs:element>                         
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:int" name="resource_id" use="optional"/>
+                                    <xs:attribute type="xs:int" name="entity_id" use="optional"/>
+                                    <xs:attribute type="xs:string" name="source_type" use="optional"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="name" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="nonCombustionEmission" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                    <xs:element name="year" maxOccurs="unbounded" minOccurs="0">
+                                      <xs:complexType>
+                                        <xs:simpleContent>
+                                          <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:string" name="value" use="optional"/>
+                                            <xs:attribute type="xs:int" name="year" use="optional"/>
+                                          </xs:extension>
+                                        </xs:simpleContent>
+                                      </xs:complexType>
+                                    </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute name="notes" use="optional" type="xs:string"/>
+                              <xs:attribute type="xs:int" name="id" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:int" name="id" use="required"/>
+                        <xs:attribute type="xs:string" name="name" use="required"/>
+                        <xs:attribute type="xs:string" name="picture" use="optional"/>
+                        <xs:attribute type="xs:string" name="urban_share" use="optional"/>
+                        <xs:attribute type="xs:string" name="notes" use="optional"/>
+                        <xs:attribute type="xs:string" name="modified-on" use="optional"/>
+                        <xs:attribute type="xs:string" name="modified-by" use="optional"/>
+                        <xs:attribute type="xs:string" name="tags" use="optional"/>
+                        <xs:attribute type="xs:string" name="discarded" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedReason" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedOn" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedBy" use="optional"/>
+                        <xs:attribute type="xs:string" name="pref-unit" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="mixes">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="mix" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:choice maxOccurs="unbounded" minOccurs="0">
+                          <xs:element name="pathway">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="shares">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="year" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="ParameterType" name="value" use="required"/>
+                                              <xs:attribute type="xs:integer" name="year" use="required"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                    <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:int" name="ref" use="required"/>
+                              <xs:attribute type="xs:string" name="output" use="required"/>
+                              <xs:attribute type="xs:string" name="notes" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="prefered_functional_unit">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="unit" use="optional"/>
+                                  <xs:attribute type="xs:int" name="amount" use="optional"/>
+                                  <xs:attribute type="xs:string" name="enabled" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="resource">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="shares">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="year" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute type="ParameterType" name="value" use="required"/>
+                                              <xs:attribute type="xs:integer" name="year" use="required"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                                    <xs:attribute name="notes" use="optional" type="xs:string"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="mostRecent" use="optional" type="xs:integer"/>
+                              <xs:attribute type="xs:int" name="ref" use="optional"/>
+                              <xs:attribute type="xs:int" name="mix" use="optional"/>
+                              <xs:attribute type="xs:string" name="notes" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="output" maxOccurs="1" minOccurs="1">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="id" use="required"/>
+                                  <xs:attribute type="xs:int" name="resource" use="required"/>
+                                  <xs:attribute type="xs:string" name="notes" use="required"/>
+                                  <xs:attribute type="xs:string" name="location" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:choice>
+                        <xs:attribute type="xs:int" name="id" use="required"/>
+                        <xs:attribute type="xs:string" name="name" use="required"/>
+                        <xs:attribute type="xs:string" name="notes" use="optional"/>
+                        <xs:attribute type="xs:string" name="help" use="optional"/>
+                        <xs:attribute type="xs:string" name="use_default_values" use="optional"/>
+                        <xs:attribute type="xs:string" name="share_type" use="optional"/>
+                        <xs:attribute type="xs:int" name="created_resource" use="optional"/>
+                        <xs:attribute type="xs:string" name="modified-on" use="required"/>
+                        <xs:attribute type="xs:string" name="modified-by" use="required"/>
+                        <xs:attribute type="xs:string" name="discarded" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedReason" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedOn" use="optional"/>
+                        <xs:attribute type="xs:string" name="discardedBy" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="pictures">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="picture" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:string" name="base64" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="plugins" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:int" name="version"/>
+      <xs:attribute type="xs:string" name="rev" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

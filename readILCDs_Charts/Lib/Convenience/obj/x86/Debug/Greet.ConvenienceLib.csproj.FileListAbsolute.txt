@@ -1,0 +1,5 @@
+C:\SVN\source\greet-dev\main\Lib\Convenience\bin\x86\Debug\Greet.ConvenienceLib.dll
+C:\SVN\source\greet-dev\main\Lib\Convenience\bin\x86\Debug\Greet.ConvenienceLib.pdb
+C:\SVN\source\greet-dev\main\Lib\Convenience\obj\x86\Debug\Greet.ConvenienceLib.dll
+C:\SVN\source\greet-dev\main\Lib\Convenience\obj\x86\Debug\Greet.ConvenienceLib.pdb
+C:\SVN\source\greet-dev\main\Lib\Convenience\obj\x86\Debug\Greet.ConvenienceLib.csprojResolveAssemblyReference.cache

@@ -1,0 +1,5 @@
+C:\qz\C#projects\readXMLs\Lib\Logger\bin\Debug\Greet.LoggerLib.dll
+C:\qz\C#projects\readXMLs\Lib\Logger\bin\Debug\Greet.LoggerLib.pdb
+C:\qz\C#projects\readXMLs\Lib\Logger\obj\Debug\Greet.LoggerLib.dll
+C:\qz\C#projects\readXMLs\Lib\Logger\obj\Debug\Greet.LoggerLib.pdb
+C:\qz\C#projects\readXMLs\Lib\Logger\obj\Debug\Greet.LoggerLib.csprojResolveAssemblyReference.cache

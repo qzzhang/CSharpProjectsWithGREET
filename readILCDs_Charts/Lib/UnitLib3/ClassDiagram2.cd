@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Greet.UnitLib3.DimensionStateException">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Internal\Exceptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Greet.UnitLib3.ExpressionStringParingException">
+    <Position X="7.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Internal\Exceptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Greet.UnitLib3.ABaseQuantities">
+    <Position X="7.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Public\ABaseQuantities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Greet.UnitLib3.ABaseQuantity">
+    <Position X="2.25" Y="0.5" Width="2.5" />
+    <NestedTypes>
+      <Class Name="Greet.UnitLib3.ABaseQuantity.NoSIUnitDefinedException" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Public\ABaseQuantity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Delegate Name="Greet.UnitLib3.ABaseQuantity.UnitChangedDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Public\ABaseQuantity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ESAIOACBAiAABAAgAAAACAQCABBVIFAAEgAAAAAACAw=</HashCode>
+      <FileName>Public\ABaseQuantity.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Greet.UnitLib3.DerivedQuantity">
+    <Position X="5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAABAIAAAAABAgEGAQAAwAAAEJAggAkkAgABAACBQ=</HashCode>
+      <FileName>Public\DerivedQuantity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Greet.UnitLib3.LightValue">
+    <Position X="20.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQEAAAACkcA2AEAAAAAAAAAAAAAAgCAAAAII=</HashCode>
+      <FileName>Public\LightValue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Greet.UnitLib3.Quantity">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAgAAAAAAQAAAABAAAAEgAAAAAACAQ=</HashCode>
+      <FileName>Public\Quantity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Greet.UnitLib3.Unit" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIQAAAAAAAAAAAAAAAYAABAHAAQQAAAEAAAAAAA=</HashCode>
+      <FileName>Public\Unit.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Greet.UnitLib3.ConversionFromOLDUnitLib">
+    <Position X="14.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAGAAAAAAAAAAAQAAEIAAAAAABABAAAAAQAAAAACEAA=</HashCode>
+      <FileName>Static\ConversionFromUnitLib.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Greet.UnitLib3.DimensionUtils">
+    <Position X="12.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAEAAAAAAAgAAIYQEEgIJAFRBAAAAAIBIDIAAAAACAg=</HashCode>
+      <FileName>Static\DimensionUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Greet.UnitLib3.GuiUtils">
+    <Position X="17.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AACgAAACQgAABACAAAAAgAAABEAAIAAAEEABiAgAAAA=</HashCode>
+      <FileName>Static\GuiUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Greet.UnitLib3.Units">
+    <Position X="17.5" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAEAAAIAIACAAAAAAIoBgARAAAAAAAAQIAAAgAAA=</HashCode>
+      <FileName>Static\Units.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Greet.UnitLib3.Q2Dim">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Static\Units.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Greet.UnitLib3.Dim2Q">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Static\Units.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Greet.UnitLib3.IQuantity">
+    <Position X="9.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>EQAAOACAAgAABAAgAAAACAQCAABBIBAAEgAAAAAACAQ=</HashCode>
+      <FileName>Interfaces\IQuantity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Greet.UnitLib3.IUnit">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIQAAAAAAAAAAAAAAAQAAAADAAQQAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IUnit.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,23 @@
+UnitProcess,Pathway,Stream,Quantiy,Unit,CoProdType,AllocationType,DisplacedPorM,DisplacedPorMId,DisplacementPorMShare,TechId,TechShare,flowNote
+"Acetic acid, at plant",,"Electricity, at grid, US, 2000",-0.021826,kWh,,,,,,,,
+"Acetic acid, at plant",,"Electricity, at cogen, for natural gas turbine",-0.0020503,kWh,,,,,,,,
+"Acetic acid, at plant",,"Natural gas, combusted in industrial boiler",-0.22355,m^3,,,,,,,,
+"Acetic acid, at plant",,"Natural gas, processed, at plant",-0.4411,m^3,,,,,,,,
+"Acetic acid, at plant",,"Methanol, at plant",-0.539,kg,,,,,,,,
+"Acetic acid, at plant",,"Dummy, Transport, pipeline, natural gas",-0.49246,tkm,,,,,,,,Represents inbound transport of processed natural gas. Original data expressed thus: 500 tonmiles/1000lb natural gas
+"Acetic acid, at plant",,"Transport, combination truck, diesel powered",-0.0049246,tkm,,,,,,,,Represents inbound transport of processed natural gas. Original data expressed thus: 5 tonmiles/1000lb natural gas
+"Acetic acid, at plant",,"Transport, train, diesel powered",-0.0049246,tkm,,,,,,,,Represents inbound transport of processed natural gas. Original data expressed thus: 5 tonmiles/1000lb natural gas
+"Acetic acid, at plant",,"Transport, barge, diesel powered",-0.0095418,tkm,,,,,,,,Represents inbound transport of methanol
+"Acetic acid, at plant",,"Transport, barge, residual fuel oil powered",-0.03383,tkm,,,,,,,,Represents inbound transport of methanol
+"Acetic acid, at plant",,"Dummy, Transport, pipeline, unspecified",-0.00086744,tkm,,,,,,,,Represents inbound transport of methanol
+"Acetic acid, at plant",,"Dummy, Disposal, solid waste, unspecified, to sanitary landfill",-0.00056,kg,,,,,,,,
+"Acetic acid, at plant",,air->unspecified:Ammonia,0.00057,kg,,,,,,,,
+"Acetic acid, at plant",,air->unspecified:Carbon dioxide,0.00176,kg,,,,,,,,
+"Acetic acid, at plant",,air->unspecified:Carbon monoxide,0.00397,kg,,,,,,,,
+"Acetic acid, at plant",,air->unspecified:Methanol,4E-05,kg,,,,,,,,
+"Acetic acid, at plant",,"air->unspecified:TOC, Total Organic Carbon",0.00217,kg,,,,,,,,
+"Acetic acid, at plant",,"water->unspecified:Acids, unspecified",0.00096,kg,,,,,,,,
+"Acetic acid, at plant",,water->unspecified:Ammonia,5.2E-05,kg,,,,,,,,
+"Acetic acid, at plant",,"Acetic acid, at plant",1,kg,,,,,,,,
+"Acetic acid, at plant",,"Recovered energy, at acetic acid production",0.18841,MJ,,,,,,,,
+Process Note,"100% of elementary flows and inputs from the technosphere were allocated to acetic acid, and 0% to recovered heat--Important note: although most of the data in the US LCI database has --undergone some sort of review, the database as a whole has not yet --undergone a formal validation process.--Please email comments to lci@nrel.gov."

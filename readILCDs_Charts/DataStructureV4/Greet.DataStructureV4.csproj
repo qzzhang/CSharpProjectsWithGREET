@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A6E8AD5D-1ACB-4D28-A727-F65E9EED1484}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Greet.DataStructureV4</RootNamespace>
+    <AssemblyName>Greet.DataStructureV4</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="DataV4\CarbonRatioNANException.cs" />
+    <Compile Include="DataV4\HeatingValueNANException.cs" />
+    <Compile Include="DataV4\DensityValueNANException.cs" />
+    <Compile Include="DataV4\Entities\Gases\EmissionGases.cs" />
+    <Compile Include="DataV4\Entities\InputTables\InputTable.cs" />
+    <Compile Include="DataV4\Entities\InputTables\InputTableColumn.cs" />
+    <Compile Include="DataV4\Entities\InputTables\InputTableObject.cs" />
+    <Compile Include="DataV4\Entities\InputTables\InputTableRow.cs" />
+    <Compile Include="DataV4\Entities\InputTables\InputTablesDictionary.cs" />
+    <Compile Include="DataV4\Entities\InputTables\InputTableTab.cs" />
+    <Compile Include="DataV4\Entities\Mix\MixListItem.cs" />
+    <Compile Include="DataV4\Entities\Mode\MaterialTransportedPayload.cs" />
+    <Compile Include="DataV4\Entities\Mode\ModeFuelShares.cs" />
+    <Compile Include="DataV4\Entities\Mode\PipelineMaterialTransported.cs" />
+    <Compile Include="DataV4\Entities\Process\ProcessesDefinitions\Stationary\ProcessStaticEmissionList.cs" />
+    <Compile Include="DataV4\Entities\Resources\MixProductionEntity.cs" />
+    <Compile Include="DataV4\Entities\Resources\PathwayProductionEntity.cs" />
+    <Compile Include="DataV4\Entities\Technologies\TechnologyListItem.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\VehicleManufacturing.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\VehicleModePowerPlantListItem.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\VehicleOperationalModeListItem.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDCarBasedEmissionFactors.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDCarEmissionsFactors.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDCarEmissionNode.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDCarEmissionsTimeSeries.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDCarEmissionValue.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDCarRealEmissionsFactors.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDCarYearEmissionsFactors.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDCDMode.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDConsumption.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDConsumptions.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDConsumptionsTS.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDRegularMode.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDMPGsTS.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDVehicle.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDVehicleFuel.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDVehicleListItem.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDVehicleOperatingModeEmissionsTSData.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDVehicleOperationalMode.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\V3Model\V3OLDVehicles.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\VehicleListItem.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\VehicleModePowerPlant.cs" />
+    <Compile Include="DataV4\Entities\_Interfaces\IGREETEntity.cs" />
+    <Compile Include="DataV4\Entities\_SharedObjects\ParameterTS.cs" />
+    <Compile Include="DataV4\Entities\_SharedObjects\Series.cs" />
+    <Compile Include="DataV4\FormulaResultNANException.cs" />
+    <Compile Include="DataV4\IDNotFoundInDatabase.cs" />
+    <Compile Include="DataV4\InconsistantUnitsException.cs" />
+    <Compile Include="DataV4\InputAmountException.cs" />
+    <Compile Include="DataV4\InvalidParameterReferenceException.cs" />
+    <Compile Include="DataV4\MainOutputNullException.cs" />
+    <Compile Include="DataV4\MarketValueNANException.cs" />
+    <Compile Include="DataV4\Monitoring\VMonitor.cs" />
+    <Compile Include="DataV4\Pictures\Picture.cs" />
+    <Compile Include="DataV4\SulfurRatioNANException.cs" />
+    <Compile Include="DataV4\UnitConversionException.cs" />
+    <Compile Include="DataV4\ValueIncorrect.cs" />
+    <Compile Include="Interfaces\IData.cs" />
+    <Compile Include="Interfaces\IDataHelper.cs" />
+    <Compile Include="Interfaces\IDependable.cs" />
+    <Compile Include="Interfaces\IDependentItem.cs" />
+    <Compile Include="Interfaces\IGas.cs" />
+    <Compile Include="Interfaces\IGDataDictionary.cs" />
+    <Compile Include="Interfaces\IGroup.cs" />
+    <Compile Include="Interfaces\IInputTable.cs" />
+    <Compile Include="Interfaces\ILocation.cs" />
+    <Compile Include="Interfaces\IMonitor.cs" />
+    <Compile Include="Interfaces\IParameter.cs" />
+    <Compile Include="Interfaces\IPicture.cs" />
+    <Compile Include="Interfaces\IProject.cs" />
+    <Compile Include="Interfaces\IXmlObj.cs" />
+    <Compile Include="Interfaces\Mix\IMix.cs" />
+    <Compile Include="Interfaces\Mix\IProductionItem.cs" />
+    <Compile Include="Interfaces\Pathway\IEdge.cs" />
+    <Compile Include="Interfaces\Pathway\IPathway.cs" />
+    <Compile Include="Interfaces\Pathway\IProcessReference.cs" />
+    <Compile Include="Interfaces\Pathway\IVertex.cs" />
+    <Compile Include="Interfaces\Enumerators.cs" />
+    <Compile Include="Interfaces\Process\IInput.cs" />
+    <Compile Include="Interfaces\Process\IIO.cs" />
+    <Compile Include="Interfaces\Process\IProcess.cs" />
+    <Compile Include="Interfaces\Process\ISequestration.cs" />
+    <Compile Include="Interfaces\Process\Stationary\IStationaryProcess.cs" />
+    <Compile Include="Interfaces\Process\Transportation\IAMode.cs" />
+    <Compile Include="Interfaces\Process\Transportation\IModeEnergySource.cs" />
+    <Compile Include="Interfaces\Process\Transportation\IModeFuelShares.cs" />
+    <Compile Include="Interfaces\Process\Transportation\ITransportationProcess.cs" />
+    <Compile Include="Interfaces\Process\Transportation\ITransportationStep.cs" />
+    <Compile Include="Interfaces\Resource\IEvaporatedGas.cs" />
+    <Compile Include="Interfaces\Resource\IInputResourceReference.cs" />
+    <Compile Include="Interfaces\Resource\IResource.cs" />
+    <Compile Include="Interfaces\Technology\IEmissionsFactors.cs" />
+    <Compile Include="Interfaces\Technology\ITechnology.cs" />
+    <Compile Include="Interfaces\Technology\IYearEmissionFactors.cs" />
+    <Compile Include="Interfaces\Vehicle\IVehicle.cs" />
+    <Compile Include="Interfaces\Vehicle\IVehicleEmissions.cs" />
+    <Compile Include="Interfaces\Vehicle\IVehicleMode.cs" />
+    <Compile Include="DataV4\Calculation\ResultsStorage\DVDict.cs" />
+    <Compile Include="DataV4\Calculation\ResultsStorage\ResourceAmounts.cs" />
+    <Compile Include="DataV4\Calculation\CalculationsHolders\Matrix\BoolMatrix.cs" />
+    <Compile Include="DataV4\Calculation\CalculationsHolders\Matrix\DVMatrix.cs" />
+    <Compile Include="DataV4\Calculation\CalculationsHolders\Matrix\Matrix.cs" />
+    <Compile Include="DataV4\Calculation\MathExtensions.cs" />
+    <Compile Include="DataV4\Entities\Parameter.cs" />
+    <Compile Include="DataV4\CompositeKeyPair.cs" />
+    <Compile Include="DataV4\Conversion\MathParseWithReferences.cs" />
+    <Compile Include="DataV4\Pictures\Pictures.cs" />
+    <Compile Include="DataV4\Entities\Gases\Gas.cs" />
+    <Compile Include="DataV4\Entities\Gases\GasBalanceReference.cs" />
+    <Compile Include="DataV4\Entities\Gases\Gases.cs" />
+    <Compile Include="DataV4\Entities\InputTables\InputTables.cs" />
+    <Compile Include="DataV4\Entities\Locations\LocationData.cs" />
+    <Compile Include="DataV4\Entities\Locations\Locations.cs" />
+    <Compile Include="DataV4\Entities\Mix\Mix.cs" />
+    <Compile Include="DataV4\Entities\Mix\Mixes.cs" />
+    <Compile Include="DataV4\Entities\Mode\AMode.cs" />
+    <Compile Include="DataV4\Entities\Mode\EmissionRatios.cs" />
+    <Compile Include="DataV4\Entities\Mode\IHaveAverageSpeed.cs" />
+    <Compile Include="DataV4\Entities\Mode\INeedPayload.cs" />
+    <Compile Include="DataV4\Entities\Mode\SpecificModes\ModeConnector.cs" />
+    <Compile Include="DataV4\Entities\Mode\SpecificModes\ModePipeline.cs" />
+    <Compile Include="DataV4\Entities\Mode\SpecificModes\ModeRail.cs" />
+    <Compile Include="DataV4\Entities\Mode\Modes.cs" />
+    <Compile Include="DataV4\Entities\Mode\SpecificModes\ModeTankerBarge.cs" />
+    <Compile Include="DataV4\Entities\Mode\SpecificModes\ModeTruck.cs" />
+    <Compile Include="DataV4\Entities\Parameters.cs" />
+    <Compile Include="DataV4\Calculation\ResultsStorage\InputResult.cs" />
+    <Compile Include="DataV4\Calculation\ResultsStorage\CanonicalInput.cs" />
+    <Compile Include="DataV4\Calculation\ResultsStorage\CanonicalOutput.cs" />
+    <Compile Include="DataV4\Calculation\ResultsStorage\CanonicalProcess.cs" />
+    <Compile Include="DataV4\Entities\Pathways\Edge.cs" />
+    <Compile Include="DataV4\Entities\Pathways\IPathwayForDataGridViewDisplay.cs" />
+    <Compile Include="DataV4\Entities\Pathways\Pathway.cs" />
+    <Compile Include="DataV4\Entities\_SharedObjects\PMOutput.cs" />
+    <Compile Include="DataV4\Entities\Pathways\Pathways.cs" />
+    <Compile Include="DataV4\Entities\Pathways\Vertex.cs" />
+    <Compile Include="DataV4\Entities\Process\abstract\AProcess.cs" />
+    <Compile Include="DataV4\Entities\Process\abstract\CoProductsElements.cs" />
+    <Compile Include="DataV4\Entities\Process\interfaces\IDurationProcess.cs" />
+    <Compile Include="DataV4\Entities\Process\IOs\ConventionalProducts.cs" />
+    <Compile Include="DataV4\Entities\Process\IOs\CoProduct.cs" />
+    <Compile Include="DataV4\Entities\Process\IOs\EmissionRatio.cs" />
+    <Compile Include="DataV4\Entities\Process\IOs\Input.cs" />
+    <Compile Include="DataV4\Entities\Process\IOs\InputWithShare.cs" />
+    <Compile Include="DataV4\Entities\Process\IOs\AIO.cs" />
+    <Compile Include="DataV4\Entities\Process\IOs\nLoss.cs" />
+    <Compile Include="DataV4\Entities\Process\IOs\MainOutput.cs" />
+    <Compile Include="DataV4\Entities\Process\IOs\AOutput.cs" />
+    <Compile Include="DataV4\Entities\Process\IOs\Sequestration.cs" />
+    <Compile Include="DataV4\Entities\Process\IOs\StepResult.cs" />
+    <Compile Include="DataV4\Entities\Process\IOs\TechRef\CalculatedTechnologyRef.cs" />
+    <Compile Include="DataV4\Entities\Process\IOs\TechRef\EntityTechnologyRef.cs" />
+    <Compile Include="DataV4\Entities\Process\IOs\TechRef\TechnologyRef.cs" />
+    <Compile Include="DataV4\Entities\Process\Processes.cs" />
+    <Compile Include="DataV4\Entities\Process\ProcessesDefinitions\Stationary\ProcessStaticEmissionItem.cs" />
+    <Compile Include="DataV4\Entities\Process\ProcessesDefinitions\Stationary\StationaryProcess.cs" />
+    <Compile Include="DataV4\Entities\Process\ProcessesDefinitions\Stationary\StationaryProcessGroup.cs" />
+    <Compile Include="DataV4\Entities\Mode\ModeEnergySource.cs" />
+    <Compile Include="DataV4\Entities\Mode\ModeFuelSharesDictionary.cs" />
+    <Compile Include="DataV4\Entities\Process\ProcessesDefinitions\Transportation\TransportationProcess.cs" />
+    <Compile Include="DataV4\Entities\Process\ProcessesDefinitions\Transportation\TransportationStep.cs" />
+    <Compile Include="DataV4\Entities\Process\FunctionalUnitPreference.cs" />
+    <Compile Include="DataV4\Entities\Resources\DefaultValuesIfNoPathway.cs" />
+    <Compile Include="DataV4\Entities\Resources\EvaporatedGas.cs" />
+    <Compile Include="DataV4\Entities\Resources\FuelProductionEntity.cs" />
+    <Compile Include="DataV4\Entities\Resources\InputResourceReference.cs" />
+    <Compile Include="DataV4\Entities\Resources\ResourceData.cs" />
+    <Compile Include="DataV4\Entities\Resources\Resources.cs" />
+    <Compile Include="DataV4\Entities\Technologies\BasedEmissionFactors.cs" />
+    <Compile Include="DataV4\Entities\Technologies\EmissionsFactors.cs" />
+    <Compile Include="DataV4\Entities\Technologies\EmissionValue.cs" />
+    <Compile Include="DataV4\Entities\Technologies\RealEmissionsFactors.cs" />
+    <Compile Include="DataV4\Entities\Technologies\Technologies.cs" />
+    <Compile Include="DataV4\Entities\Technologies\TechnologyData.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\Vehicle.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\VehicleOperationalMode.cs" />
+    <Compile Include="DataV4\Entities\Vehicle\Vehicles.cs" />
+    <Compile Include="DataV4\Entities\_Interfaces\IGraphRepresented.cs" />
+    <Compile Include="DataV4\Entities\_Interfaces\IGroupAvailable.cs" />
+    <Compile Include="DataV4\Entities\_Interfaces\IHaveAPicture.cs" />
+    <Compile Include="DataV4\Entities\_SharedObjects\DependentItem.cs" />
+    <Compile Include="DataV4\Entities\_SharedObjects\Group.cs" />
+    <Compile Include="DataV4\Entities\_SharedObjects\TimeSeries.cs" />
+    <Compile Include="DataV4\ExtendedTypes\ExtendedList.cs" />
+    <Compile Include="DataV4\ExtendedTypes\ExtendedString.cs" />
+    <Compile Include="DataV4\GData.cs" />
+    <Compile Include="DataV4\InterfaceObjects\IHaveMetadata.cs" />
+    <Compile Include="DataV4\InterfaceObjects\IHaveResults.cs" />
+    <Compile Include="DataV4\InterfaceObjects\ResultValue.cs" />
+    <Compile Include="DataV4\Monitoring\AMonitor.cs" />
+    <Compile Include="DataV4\Monitoring\Monitor.cs" />
+    <Compile Include="DataV4\Monitoring\MonitorExcelLocationData.cs" />
+    <Compile Include="DataV4\Monitoring\MonitorValues.cs" />
+    <Compile Include="DataV4\BasicParameters.cs" />
+    <Compile Include="DataV4\GProject.cs" />
+    <Compile Include="DataHelper.cs" />
+    <Compile Include="Interfaces\Vehicle\IVehicleModePlant.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="DataV4\Calculation\ResultsStorage\Dict.cs" />
+    <Compile Include="DataV4\Calculation\ResultsStorage\EmissionAmounts.cs" />
+    <Compile Include="DataV4\Calculation\ResultsStorage\Enem.cs" />
+    <Compile Include="DataV4\Calculation\ResultsStorage\Results.cs" />
+    <Compile Include="Interfaces\ResultTypes\IResults.cs" />
+    <Compile Include="Interfaces\ResultTypes\IValue.cs" />
+    <Compile Include="Interfaces\ResultTypes\ISimulationRun.cs" />
+    <Compile Include="DataV4\Calculation\ResultsStorage\TechnologyResult.cs" />
+    <Compile Include="ResultsHelper.cs" />
+    <Compile Include="ToolsDataStructure.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="XMLSchemaV4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

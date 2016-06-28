@@ -1,0 +1,9 @@
+C:\qz\C#projects\readILCDs_Charts\readXMLs\obj\Debug\readXMLs.Properties.Resources.resources
+C:\qz\C#projects\readILCDs_Charts\readXMLs\obj\Debug\readILCDs.ReadXML.resources
+C:\qz\C#projects\readILCDs_Charts\readXMLs\obj\Debug\readXMLs.Resources.resources
+C:\qz\C#projects\readILCDs_Charts\readXMLs\obj\Debug\readILCDs.csproj.GenerateResource.Cache
+C:\qz\C#projects\readILCDs_Charts\readXMLs\obj\Debug\readXMLs.exe
+C:\qz\C#projects\readILCDs_Charts\readXMLs\obj\Debug\readXMLs.pdb
+C:\qz\C#projects\readILCDs_Charts\readXMLs\bin\Debug\readXMLs.exe.config
+C:\qz\C#projects\readILCDs_Charts\readXMLs\bin\Debug\readXMLs.exe
+C:\qz\C#projects\readILCDs_Charts\readXMLs\bin\Debug\readXMLs.pdb

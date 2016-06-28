@@ -1,0 +1,10 @@
+C:\qz\C#projects\readXMLs\readXMLs\bin\Debug\readXMLs.exe.config
+C:\qz\C#projects\readXMLs\readXMLs\bin\Debug\readXMLs.exe
+C:\qz\C#projects\readXMLs\readXMLs\bin\Debug\readXMLs.pdb
+C:\qz\C#projects\readXMLs\readXMLs\obj\Debug\readXMLs.Properties.Resources.resources
+C:\qz\C#projects\readXMLs\readXMLs\obj\Debug\readXMLs.ReadXML.resources
+C:\qz\C#projects\readXMLs\readXMLs\obj\Debug\readXMLs.Resources.resources
+C:\qz\C#projects\readXMLs\readXMLs\obj\Debug\readXMLs.csproj.GenerateResource.Cache
+C:\qz\C#projects\readXMLs\readXMLs\obj\Debug\readXMLs.exe
+C:\qz\C#projects\readXMLs\readXMLs\obj\Debug\readXMLs.pdb
+C:\qz\C#projects\readXMLs\readXMLs\obj\Debug\readXMLs.csprojResolveAssemblyReference.cache

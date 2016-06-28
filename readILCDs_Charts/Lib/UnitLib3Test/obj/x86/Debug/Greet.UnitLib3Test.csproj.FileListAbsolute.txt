@@ -1,0 +1,9 @@
+C:\SVN\source\greet-dev\main\Lib\UnitLib3Test\bin\x86\Debug\Greet.UnitLib3Test.dll
+C:\SVN\source\greet-dev\main\Lib\UnitLib3Test\bin\x86\Debug\Greet.UnitLib3Test.pdb
+C:\SVN\source\greet-dev\main\Lib\UnitLib3Test\bin\x86\Debug\Greet.UnitLib3.dll
+C:\SVN\source\greet-dev\main\Lib\UnitLib3Test\bin\x86\Debug\Greet.ConvenienceLib.dll
+C:\SVN\source\greet-dev\main\Lib\UnitLib3Test\bin\x86\Debug\Greet.UnitLib3.pdb
+C:\SVN\source\greet-dev\main\Lib\UnitLib3Test\bin\x86\Debug\Greet.ConvenienceLib.pdb
+C:\SVN\source\greet-dev\main\Lib\UnitLib3Test\obj\x86\Debug\Greet.UnitLib3Test.csprojResolveAssemblyReference.cache
+C:\SVN\source\greet-dev\main\Lib\UnitLib3Test\obj\x86\Debug\Greet.UnitLib3Test.dll
+C:\SVN\source\greet-dev\main\Lib\UnitLib3Test\obj\x86\Debug\Greet.UnitLib3Test.pdb

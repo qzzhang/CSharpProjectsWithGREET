@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GREET Results with Google Charts</title>
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <script type='text/javascript' src='https://google-developers.appspot.com/_static/a1c29df6f1/js/prettify-bundle.js'></script>
+    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://google-developers.appspot.com/_static/a1c29df6f1/js/jquery_ui-bundle.js'></script>
+    <script type='text/javascript' src='//www.google.com/jsapi?key=AIzaSyCZfHRnq7tigC-COeQRmoa9Cxr0vbrK6xw'></script>
+    <script type='text/javascript' src='https://google-developers.appspot.com/_static/a1c29df6f1/js/framebox.js'></script>
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,500italic,700,700italic|Roboto+Mono:400,700|Material+Icons'>
+    <link rel='stylesheet' href='https://google-developers.appspot.com/_static/a1c29df6f1/css/devsite-cyan.css'>
+    <script type='text/javascript'>
+       google.charts.load('current', { 'packages':['corechart', 'table', 'gauge', 'controls']});
+       google.charts.setOnLoadCallback(drawMainDashboard);
+       function drawMainDashboard() {
+         var data = google.visualization.arrayToDataTable([
+		 ['Pollutant','emission_WTP','emission_WTWa'],
+		 ['VOC',5.70E-05,1.69E-04],
+		 ['SOx',1.73E-04,4.54E-04],
+		 ['POC',5.57E-06,1.68E-05],
+		 ['PM25',1.79E-05,5.51E-05],
+		 ['PM10',2.23E-05,5.95E-05],
+		 ['NOx',3.05E-04,3.41E-03],
+		 ['N2O',1.44E-06,3.24E-06],
+		 ['GHG',8.57E-02,7.18E-01],
+		 ['CO2_total',7.24E-02,7.05E-01],
+		 ['CO2',7.22E-02,7.04E-01],
+		 ['CO',1.04E-04,8.96E-04],
+		 ['CH4',5.28E-04,5.29E-04],
+		 ['BC',2.68E-06,1.44E-05]],
+		 false);// 'false' means that the first row contains labels, not data.
+		 
+         var dashboard = new google.visualization.Dashboard(document.getElementById('dashboard_div'));
+         var slider1 = new google.visualization.ControlWrapper({
+         'controlType': 'NumberRangeFilter',
+         'containerId': 'slider1_div',
+         'options': {
+            'filterColumnIndex': 1,//select the data to filter by matching column index exactly
+    		 //'showRangeValues': true,
+   		 //'minValue': 0.0,
+            //'maxValue': 1.0,
+            'ui': {
+                'labelStacking': 'vertical',
+                'label': 'Range Filter:',
+		         'unitIncrement': 0.1
+         }
+      }
+       //'state': {'lowValue': 0.005, 'highValue': 0.5}
+     });
+         var slider2 = new google.visualization.ControlWrapper({
+         'controlType': 'NumberRangeFilter',
+         'containerId': 'slider2_div',
+         'options': {
+            'filterColumnIndex': 2,//select the data to filter by matching column index exactly
+    		 //'showRangeValues': true,
+   		 //'minValue': 0.0,
+            //'maxValue': 10.0,
+            'ui': {
+                'labelStacking': 'vertical',
+                'label': 'Second Filter:',
+		         'unitIncrement': 0.1
+         }
+      }
+     }); 
+         var stringFilter = new google.visualization.ControlWrapper({
+         'controlType': 'StringFilter',
+         'containerId': 'control3_div',
+         'options': {
+            'filterColumnLabel': 'Pollutant',//select the data to filter by matching column name exactly
+            'ui': {
+                'labelStacking': 'vertical',
+         }
+      }
+     });
+	 var pie = new google.visualization.ChartWrapper({
+      'chartType': 'PieChart',
+      'containerId': 'piechart_div',
+      'options': {
+        'width': 300,
+        'height': 300,
+        'legend': 'bottom',
+        'chartArea': {'left': 15, 'top': 15, 'right': 0, 'bottom': 0},
+        'pieSliceText': 'label'
+      },
+      'view': {'columns': [0, 1]}
+    });
+         var bar = new google.visualization.ChartWrapper({
+         'chartType': 'ColumnChart',
+         'containerId': 'barchart_div',
+         'options': {
+            'width': 300,
+    		 'height': 300,
+   		 'legend': 'bottom',
+            'bar': {groupWidth: '95%'},
+            'vAxis': {title:'Emission,g/kg*km', gridlines: { count: 6 }, format: '0.###E+000'},
+            'hAxis': {title:'Pollutant', minValue: 0, maxValue: 1}
+         },
+         'view': {'columns': [0,2]}
+     }); 
+         var table = new google.visualization.ChartWrapper({
+         'chartType': 'Table',
+         'containerId': 'table_div',
+         'options': {
+            'width': 400
+         }
+     }); 
+         var formatter = new google.visualization.NumberFormat({pattern: '0.###E+000'});
+         formatter.format(data, 1); // Apply formatter to second column
+         formatter.format(data, 2); // Apply formatter to second column
+         dashboard.bind([stringFilter], [table]); //Bind the StringFilter to the Table if you want the StringFilter to control only the table.
+         dashboard.bind([slider1], [table, bar]); // Bind the NumberRangeFilter and CategoryFilter to the BarChart, PieChart and Table
+         dashboard.bind([slider2], [table, pie]); // dashboard.bind([slider1, slider1, slider2], [table, pie, bar])
+         dashboard.draw(data);//Draw the entire dashboard
+}
+</script>
+  </head>
+<body>
+<div id='dashboard_div' style='border: 1px solid #ccc; margin-top: 1em'>
+  <p style='padding-left: 1em'><strong>Jet emissions</strong></p>
+  <table class='columns'>
+    <tr>
+       <td>
+         <div id='slider1_div' style='padding-left: 15px'></div><br />
+         <div id='control3_div' style='padding-left: 15px'></div>
+       </td><td>
+         <div id='slider2_div' style='padding-left: 15px'></div>
+       </td><td>
+         <div id='categoryPicker_div' style='padding-left: 15px'></div>
+       </td>
+    </tr><tr>
+       <td>
+         <div id='table_div' style='padding-top: 15px'></div>
+       </td><td>
+         <div id='barchart_div' style='padding-top: 15px'></div>
+       </td><td>
+         <div id='piechart_div' style='padding-top: 30px'></div>
+       </td>
+    </tr>
+  </table>
+  </div>
+</body>
+</html>
